@@ -1,0 +1,17 @@
+!pip install yfinance==0.2.4
+import pandas as ps
+import yfinance as yf
+import matplotlib.pyplot as plt
+
+tesla = yf.Ticker("TSLA")
+tesla_data = tesla.history(period = 'MAX').reset_index()
+tesla_data.head()
+GME = yf.Ticker("GME")
+GME_data = GME.history(period = 'MAX').reset_index()
+GME_data.head()
+
+plt.plot(tesla_data['Date'],tesla_data['Open'])
+plt.title('Tesla Stock')
+
+plt.plot(GME_data['Date'],GME_data['Open'])
+plt.title('GME Stock')
